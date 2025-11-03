@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Image Change</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #divID {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            mix-blend-mode: hue;
+            pointer-events: auto;
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:aliceblue;
+            overflow: hidden;
+        }
+
+        img {
+            max-width: 900px;
+            height: 600px;
+            border: 5px solid #333;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+        img:hover {
+        transform: scale (1.05s);
+        transition: transform 0.3s easy-in-out;
+        cursor: pointer;
+}
+
+        @keyframes glow {
+    0% { box-shadow: 0 0 5px #ff00ff; }
+    50% { box-shadow: 0 0 20px #00ffff; }
+    100% { box-shadow: 0 0 5px #ff00ff; }
+}
+
+@keyframes riseFromDeep {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.8);
+        filter: blur(5px);
+    }
+    50% {
+        opacity: 0.5;
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+
+
+img {
+    animation: glow 3s infinite;
+    animation: blink 1s infinite;
+    animation: riseFromDeep 2.5s ease-out forwards, glow 3s infinite;
+
+
+}
+
+    </style>
+</head>
+
+<body>
+    <img src="images/LOGO.png" alt="Company Logo">
+    <div id="divID"></div>
+
+    <script>
+        const divElem = document.getElementById("divID");
+        function randomcolor() {
+            return Math.floor(Math.random() * 255);
+        }
+        divElem.addEventListener('click', () => {
+            divElem.style.backgroundColor =
+                "rgba(" + randomcolor() + "," + randomcolor() + "," + randomcolor() + ",1)";
+        });
+
+
+    </script>
+
+</body>
+
+</html>
