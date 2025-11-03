@@ -1,2 +1,2 @@
-# LOGO
-LOGO Project
+# Logo
+Logo Project
