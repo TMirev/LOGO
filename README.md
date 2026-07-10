@@ -1,4 +1,4 @@
-# LOGO Project
+# LOGO design
 
 A web-based interactive logo display application that showcases dynamic visual effects and user interactivity through color manipulation and CSS animations.
 
